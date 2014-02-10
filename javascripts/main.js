@@ -19,13 +19,18 @@ $(function() {
     $results.html('<h4>Loading...</h4>')
     $widget.fadeIn();
 
-    // $widget_html = $('#fbopen-widget-placeholder').html();
+    $('#fbopen-widget-output').find('script').each(function() {
+      if ($(this).attr('class') == 'leave') {
+      } else {
+        $(this).remove();
+      }
+    });
+    $('#fbopen-widget-output').find('link').each(function() {
+      $(this).remove();
+    });
     elm = document.getElementById('fbopen-widget-placeholder');
     $widget_html = elm.outerHTML;
-    // $widget_html.append("<script>$(function() { getFbopen(); })</script>")
     $('#widget-textarea').val($widget_html)
-    // var widget = document.getElementById('widget-textarea');
-    // scriptIt(widget);
 
 
   	request = $.ajax({
@@ -68,6 +73,10 @@ $(function() {
 
     e.preventDefault();
   });
+
+  $('#widget-textarea').mouseenter(function() {
+    ctrlA($(this));
+  })
 
 });
 

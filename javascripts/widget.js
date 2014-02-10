@@ -23,7 +23,6 @@ fbopenWidget.models = {};
 
 $(function() {
   var getFbopen = function() {
-    var $widget = $('#fbopen-widget-output');
     var serializedData = $('#fbopen-widget-data').val()
     var $results = $('#fbopen-widget-results');
     $results.html('<h4>Loading...</h4>')
@@ -33,6 +32,7 @@ $(function() {
       data: serializedData
     });
     request.done(function (response, textStatus, jqXHR){
+      $('#fbopen-widget-placeholder').fadeIn();
       $results.html('<h2>FBOpen</h2>');
       var num = fbopenWidget.helpers.addCommas(response.numFound);
       $results.append('<h3>'+num+' Opportunities Found</h3>')

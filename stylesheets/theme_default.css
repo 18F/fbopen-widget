@@ -4,6 +4,6 @@
   max-height: 400px;
   overflow-y: scroll;
 }
-#fbopen-widget-placeholder { display: block; }
+/*#fbopen-widget-placeholder { display: block; }*/
 
 #fbopen-widget-results small { color: #c1c1c1; }

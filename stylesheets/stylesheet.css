@@ -404,5 +404,6 @@ header { position: relative;}
   font-size: 0.8em;
   color: #c1c1c1;
 }
-#fbopen-widget-placeholder,
+.fbopen-widget-wrapper,
 #widget { display: none; }
+.fbopen-demo .fbopen-widget-wrapper { display: none; }

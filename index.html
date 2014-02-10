@@ -32,7 +32,7 @@
 
         <hr>
 
-        <section id="main_content">
+        <section id="main_content" class="fbopen-demo">
           <h3><a name="welcome-to-fbopen-widget" class="anchor" href="#welcome-to-fbopen-widget"><span class="octicon octicon-link"></span></a>Enter your search parameters</h3>
 
           <div id="fbopen-widget">
@@ -60,13 +60,14 @@
             </div>
 
 <!-- BEGINNING OF WIDGET SNIPPET -->
-<div id="fbopen-widget-placeholder">
+<div id="fbopen-widget-placeholder" class="fbopen-widget-wrapper">
    <input type="hidden" id="fbopen-widget-data" value="" />
    <div id="fbopen-widget-output">
-    <script type="text/javascript">
+    <script type="text/javascript" class="leave">
+      var root_uri = (("localhost" == document.location.hostname) ? "localhost:4000" : "amoose.github.io");
       document.write(unescape("%3Cscript src='//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js' type='text/javascript'%3E%3C/script%3E"));
-      document.write(unescape("%3Cscript src='//amoose.github.io/fbopen-widget/javascripts/widget.js' type='text/javascript'%3E%3C/script%3E"));
-      document.write(unescape("%3Clink href='//amoose.github.io/fbopen-widget/stylesheets/theme_default.css' rel='stylesheet' type='text/css' /%3E"));
+      document.write(unescape("%3Cscript src='//"+root_uri+"/fbopen-widget/javascripts/widget.js' type='text/javascript'%3E%3C/script%3E"));
+      document.write(unescape("%3Clink href='//"+root_uri+"/fbopen-widget/stylesheets/theme_default.css' rel='stylesheet' type='text/css' /%3E"));
     </script>
   </div>
   <div id="fbopen-widget-results"></div>
