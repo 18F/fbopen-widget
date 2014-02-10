@@ -20,7 +20,7 @@ $(function() {
     $widget.fadeIn();
 
     $('#fbopen-widget-output').find('script').each(function() {
-      if ($(this).attr('class') == 'leave') {
+      if ($(this).attr('class') == 'embed') {
       } else {
         $(this).remove();
       }
