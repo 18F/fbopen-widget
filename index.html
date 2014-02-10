@@ -21,11 +21,12 @@
         <header>
           <h1>FBOpen Widget</h1>
           <h2>Generates a JavaScript widget for searching FBOpen</h2>
+          <div class="version">v0.2b</div>
         </header>
 
         <section id="downloads" class="clearfix">
-          <a href="/fbopen-widget/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
-          <a href="/fbopen-widget/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <!-- <a href="/fbopen-widget/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a> -->
+          <!-- <a href="/fbopen-widget/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a> -->
           <a href="https://github.com/amoose/fbopen-widget" id="view-on-github" class="button"><span>View on GitHub</span></a>
         </section>
 
@@ -37,7 +38,7 @@
           <div id="fbopen-widget">
             <form id="fbopen-widget-demo" method="GET" action="">
 
-              <label>Keywords:<br />
+              <label id="sample">Keywords:<br />
                 <input type="text" id="fbopen-widget-query" name="q" />
               </label>
               <br clear="all" />
@@ -53,74 +54,24 @@
             <div id="fbopen-widget-results-demo" class="debug"><small>Your sample search results will display here.</small></div>
 
             <div id="widget">
-              <h3>Embed on your Site</h3>
+              <h3 id="embed">Embed on your Site</h3>
               <p>Copy and paste the following snippet to embed on your site:</p>
               <textarea id="widget-textarea"></textarea>
             </div>
 
-            <div id="fbopen-widget-placeholder">
-              <input type="hidden" id="fbopen-widget-data" value="" />
-              <div id="fbopen-widget-output">
-                <script type="text/javascript">
-                  var fbopenWidget = {};
-                  fbopenWidget.helpers = {};
-                  fbopenWidget.helpers.preview = function(str) {
-                    rtnstr = str.substring(0,255);
-                    if (str.length > 255)
-                      rtnstr += "..."
-                    return rtnstr
-                  };
-                  fbopenWidget.helpers.addCommas = function(nStr) {
-                    nStr += '';
-                    x = nStr.split('.');
-                    x1 = x[0];
-                    x2 = x.length > 1 ? '.' + x[1] : '';
-                    var rgx = /(\d+)(\d{3})/;
-                    while (rgx.test(x1)) {
-                        x1 = x1.replace(rgx, '$1' + ',' + '$2');
-                    }
-                    return x1 + x2;
-                  }
-                  fbopenWidget.models = {};
-                  fbopenWidget.models.api_uri = function() { return 'http://api.data.gov/gsa/fbopen-dev/v0/opps'; }
-
-                  $(function() {
-                    var getFbopen = function() {
-                      var $widget = $('#fbopen-widget-output');
-                      var serializedData = $('#fbopen-widget-data').val()
-                      var $results = $('#fbopen-widget-results');
-                      var request = $.ajax({
-                        url: fbopenWidget.models.api_uri,
-                        type: "get",
-                        data: serializedData
-                      });
-                      request.done(function (response, textStatus, jqXHR){
-                        $results.html('<h2>FBOpen</h2>');
-                        var num = addCommas(response.numFound);
-                        $results.append('<h3>'+num+' Opportunities Found</h3>')
-                        for (var i = 0; i < response.docs.length; i++) {
-                          var title = response.docs[i].title;
-                          var uri = response.docs[i].listing_url;
-                          var agency = response.docs[i].agency;
-                          var description = "No description available."
-                          var posted = response.docs[i].posted_dt;
-                          if (response.docs[i].description)
-                            description = preview(response.docs[i].description);
-                          var html = '<div class="fbopen-opp"><a href="'+uri+'" target="_blank"><h4>'+title+'</h4></a>'
-                            html += '<h5>'+agency+'</h5>';
-                            html += '<p>'+description+'</p>';
-                            html += '</div>';
-
-                          $results.append(html)
-                        }
-                      });
-                    }
-
-                  });
-                </script>
-              </div>
-              <div id="fbopen-widget-results"></div>
-            </div>
+<!-- BEGINNING OF WIDGET SNIPPET -->
+<div id="fbopen-widget-placeholder">
+   <input type="hidden" id="fbopen-widget-data" value="" />
+   <div id="fbopen-widget-output">
+    <script type="text/javascript">
+      document.write(unescape("%3Cscript src='//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js' type='text/javascript'%3E%3C/script%3E"));
+      document.write(unescape("%3Cscript src='//localhost:4000/fbopen-widget/javascripts/widget.js' type='text/javascript'%3E%3C/script%3E"));
+      document.write(unescape("%3Clink href='//localhost:4000/fbopen-widget/stylesheets/theme_default.css' rel='stylesheet' type='text/css' /%3E"));
+    </script>
+  </div>
+  <div id="fbopen-widget-results"></div>
+</div>
+<!-- END OF WIDGET SNIPPET -->
           </div>
 
         </section>

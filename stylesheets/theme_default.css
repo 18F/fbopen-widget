@@ -1,0 +1,9 @@
+#fbopen-widget-results {
+  border: 1px solid #c1c1c1;
+  padding: 10px;
+  max-height: 400px;
+  overflow-y: scroll;
+}
+#fbopen-widget-placeholder { display: block; }
+
+#fbopen-widget-results small { color: #c1c1c1; }

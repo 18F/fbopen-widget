@@ -9,6 +9,7 @@ $(function() {
   	var $inputs = $form.find("input, select, button, textarea");
   	var $results = $('#fbopen-widget-results-demo');
     var $dataStore = $('#fbopen-widget-data');
+    var $widget = $('#widget')
 
   	var serializedData = $form.serialize();
     // set values for widget snippet
@@ -16,12 +17,15 @@ $(function() {
 
   	$inputs.prop("disabled", true);
     $results.html('<h4>Loading...</h4>')
+    $widget.fadeIn();
 
-    $widget_html = $('#fbopen-widget-placeholder').html();
+    // $widget_html = $('#fbopen-widget-placeholder').html();
+    elm = document.getElementById('fbopen-widget-placeholder');
+    $widget_html = elm.outerHTML;
     // $widget_html.append("<script>$(function() { getFbopen(); })</script>")
     $('#widget-textarea').val($widget_html)
-    var widget = document.getElementById('widget-textarea');
-    scriptIt(widget);
+    // var widget = document.getElementById('widget-textarea');
+    // scriptIt(widget);
 
 
   	request = $.ajax({

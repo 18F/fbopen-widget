@@ -22,94 +22,30 @@
           <h2>Generates a JavaScript widget for searching FBOpen</h2>
         </header>
 
-       
-
         <section id="main_content">
-<script>
-info="
-              <input type=&#34;hidden&#34; id=&#34;fbopen-widget-data&#34; value=&#34;q=sbir&amp;api_key=DEMO_KEY&#34;>
-              <div id=&#34;fbopen-widget-output&#34;>
-                <script type=&#34;text/javascript&#34;>
-                  var fbopenWidget = {};
-                  fbopenWidget.helpers = {};
-                  fbopenWidget.helpers.preview = function(str) {
-                    rtnstr = str.substring(0,255);
-                    if (str.length > 255)
-                      rtnstr += &#34;...&#34;
-                    return rtnstr
-                  };
-                  fbopenWidget.helpers.addCommas = function(nStr) {
-                    nStr += &#39;&#39;;
-                    x = nStr.split(&#39;.&#39;);
-                    x1 = x[0];
-                    x2 = x.length > 1 ? &#39;.&#39; + x[1] : &#39;&#39;;
-                    var rgx = /(\d+)(\d{3})/;
-                    while (rgx.test(x1)) {
-                        x1 = x1.replace(rgx, &#39;$1&#39; + &#39;,&#39; + &#39;$2&#39;);
-                    }
-                    return x1 + x2;
-                  }
-                  fbopenWidget.models = {};
-                  fbopenWidget.models.api_uri = function() { return &#39;http://api.data.gov/gsa/fbopen-dev/v0/opps&#39;; }
 
-                  $(function() {
-                    var getFbopen = function() {
-                      var $widget = $(&#39;#fbopen-widget-output&#39;);
-                      var serializedData = $(&#39;#fbopen-widget-data&#39;).val()
-                      var $results = $(&#39;#fbopen-widget-results&#39;);
-                      var request = $.ajax({
-                        url: fbopenWidget.models.api_uri,
-                        type: &#34;get&#34;,
-                        data: serializedData
-                      });
-                      request.done(function (response, textStatus, jqXHR){
-                        $results.html(&#39;<h2>FBOpen</h2>&#39;);
-                        var num = addCommas(response.numFound);
-                        $results.append(&#39;<h3>&#39;+num+&#39; Opportunities Found</h3>&#39;)
-                        for (var i = 0; i < response.docs.length; i++) {
-                          var title = response.docs[i].title;
-                          var uri = response.docs[i].listing_url;
-                          var agency = response.docs[i].agency;
-                          var description = &#34;No description available.&#34;
-                          var posted = response.docs[i].posted_dt;
-                          if (response.docs[i].description)
-                            description = preview(response.docs[i].description);
-                          var html = &#39;<div class=&#34;fbopen-opp&#34;><a href=&#34;&#39;+uri+&#39;&#34; target=&#34;_blank&#34;><h4>&#39;+title+&#39;</h4></a>&#39;
-                            html += &#39;<h5>&#39;+agency+&#39;</h5>&#39;;
-                            html += &#39;<p>&#39;+description+&#39;</p>&#39;;
-                            html += &#39;</div>&#39;;
+<!-- ------------------------------------- -->
 
-                          $results.append(html)
-                        }
-                      });
-                    }
+<div id="fbopen-widget-placeholder">
+   <input type="hidden" id="fbopen-widget-data" value="q=sba&amp;api_key=DEMO_KEY">
+   <div id="fbopen-widget-output">
+    <script type="text/javascript">
+      document.write(unescape("%3Cscript src='//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js' type='text/javascript'%3E%3C/script%3E"));
+      document.write(unescape("%3Cscript src='//localhost:4000/fbopen-widget/javascripts/widget.js' type='text/javascript'%3E%3C/script%3E"));
+      document.write(unescape("%3Clink href='//localhost:4000/fbopen-widget/stylesheets/theme_default.css' rel='stylesheet' type='text/css' /%3E"));
+    </script><script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script><script src="//localhost:4000/fbopen-widget/javascripts/widget.js" type="text/javascript"></script><link href="//localhost:4000/fbopen-widget/stylesheets/theme_default.css" rel="stylesheet" type="text/css">
+  </div>
+  <div id="fbopen-widget-results"></div>
+</div>
 
-                  });
-                </script>
-              </div>
-              <div id=&#34;fbopen-widget-results&#34;></div>
-            "
+<!-- ------------------------------------- -->
 
-console.log(info)
-</script>
 
         </section>
 
         <footer>
           FBOpen Widget is maintained by <a href="https://github.com/amoose">amoose</a><br>
         </footer>
-
-        <script src="/fbopen-widget/javascripts/main.js" type="text/javascript"></script>
-        <script type="text/javascript">
-          var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-          document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-        </script>
-        <script type="text/javascript">
-          try {
-            var pageTracker = _gat._getTracker("UA-43089984-2");
-            pageTracker._trackPageview();
-            } catch(err) {}
-        </script>
 
       </div>
     </div>

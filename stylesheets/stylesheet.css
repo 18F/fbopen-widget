@@ -374,6 +374,8 @@ footer a:hover {
 #fbopen-widget-results-demo {
   border: 1px solid #c1c1c1;
   padding: 10px;
+  max-height: 400px;
+  overflow-y: scroll;
 }
 #widget-textarea {
   width: 100%;
@@ -394,3 +396,13 @@ footer a:hover {
 
 #widget { margin: 1.0em;}
 #fbopen-widget-results small { color: #c1c1c1; }
+
+header { position: relative;}
+.version { color: #c1c1c1; font-size: 0.8em; right: 0; top: 10px; position: absolute; }
+.debug small {
+  font-style: italic;
+  font-size: 0.8em;
+  color: #c1c1c1;
+}
+#fbopen-widget-placeholder,
+#widget { display: none; }
