@@ -17,7 +17,7 @@ fbopenWidget.helpers.addCommas = function(nStr) {
   }
   return x1 + x2;
 }
-fbopenWidget.helpers.api_uri = function() { return 'http://api.data.gov/gsa/fbopen-dev/v0/opps'; }
+fbopenWidget.helpers.api_uri = function() { return 'http://api.data.gov/gsa/fbopen/v0/opps'; }
 fbopenWidget.models = {};
 
 
@@ -27,7 +27,7 @@ $(function() {
     var $results = $('#fbopen-widget-results');
     $results.html('<h4>Loading...</h4>')
     var request = $.ajax({
-      url: 'http://api.data.gov/gsa/fbopen-dev/v0/opps',
+      url: 'http://api.data.gov/gsa/fbopen/v0/opps',
       type: "get",
       data: serializedData
     });
