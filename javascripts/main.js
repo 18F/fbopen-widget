@@ -1,5 +1,5 @@
 $(function() {
-	var FBOPEN_URI = 'http://api.data.gov/gsa/fbopen-dev/v0/opps';
+	var FBOPEN_URI = 'http://api.data.gov/gsa/fbopen/v0/opps';
 	var request;
 
   $('#fbopen-widget-demo').submit(function(e) {
