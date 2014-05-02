@@ -46,7 +46,7 @@ License
      href="http://18f.gsa.gov">
     <span property="dct:title">18F</span></a>
   has waived all copyright and related or neighboring rights to
-  <span property="dct:title">18f.gsa.gov</span>.
+  <span property="dct:title">fbopen-widget</span>.
 This work is published from:
 <span property="vcard:Country" datatype="dct:ISO3166"
       content="US" about="http://18f.gsa.gov">
