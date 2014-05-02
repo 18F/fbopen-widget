@@ -19,6 +19,7 @@ Dependencies
 --
 
 * Ruby (recommended: [RVM](http://rvm.io))
+* [Bundler](http://bundler.io/)
 
 
 
