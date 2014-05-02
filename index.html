@@ -3,64 +3,55 @@
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link href='//fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <title>FBOpen Widget</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='//fonts.googleapis.com/css?family=Enriqueta:400,700|Roboto:100,300,400,700|Merriweather' rel='stylesheet' type='text/css'>
+    <link href="//fbopen.gsa.gov/bootstrap/css/bootstrap-1600.css" rel="stylesheet" type="text/css">
+    <link href="//fbopen.gsa.gov/bootstrap/css/navbar-fixed-top.css" rel="stylesheet" type="text/css">
+    <link href="//fbopen.gsa.gov/assets/css/fbopen.css" rel="stylesheet" type="text/css">
+    <link href="stylesheets/theme_default.css" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/png" href="//fbopen.gsa.gov/assets/images/favicon.png">
+    <title>FBOpen Widget Builder</title>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
   </head>
 
   <body>
-    <div id="container">
-      <div class="inner">
 
-        <header>
-          <h1>FBOpen Widget</h1>
-          <h2>Generates a JavaScript widget for searching FBOpen</h2>
-          <div class="version">v0.2b</div>
-        </header>
+    <div class="container" id="outer-container">
 
-        <section id="downloads" class="clearfix">
-          <!-- <a href="/fbopen-widget/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a> -->
-          <!-- <a href="/fbopen-widget/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a> -->
-          <a href="https://github.com/18f/fbopen-widget" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        <div id="intro">
 
-        </section>
-        <hr />
-        <section>
-          <h1>Get Started</h1>
-          <p>
-            <ol>
-              <li>Enter your search terms (eg. SBIR, software, etc.)</li>
-              <li>Hit 'Search'</li>
-              <li>Copy and paste the included code snippet to use on your site</li>
-            </ol>
+          <div class="container brand">
+            <a href="/" style="color: #333;"><span class="logo">fbopen</span></a>
+            <span>widget builder</span>
+          </div>
+
+          <p class="landing-copy">
+            FBOpen helps small businesses search for opportunities to work with the U.S. government.
           </p>
-        </section>
+          <p class="landing-copy">
+            <small>Developers, learn more at our <a href="https://github.com/18f/fbopen">github repo</a> and our <a href="http://docs.fbopen.apiary.io/">API documentation</a>.</small>
+          </p>
 
-        <hr />
+        </div>
 
-        <section id="main_content" class="fbopen-demo">
-          <h3><a name="welcome-to-fbopen-widget" class="anchor" href="#welcome-to-fbopen-widget"><span class="octicon octicon-link"></span></a>Enter your search parameters</h3>
+        <div id="main" class="row">
 
           <div id="fbopen-widget">
             <form id="fbopen-widget-demo" method="GET" action="">
 
-              <label id="sample">Keywords:<br />
-                <input type="text" id="fbopen-widget-query" name="q" />
-              </label>
+              <div class="form-group">
+                <label><a href="https://api.data.gov/signup" target="_blank">API Key</a>:
+                  <input type="text" name="api_key" value="DEMO_KEY" class="form-control intro" />
+                </label>
+              </div>
+
+              <div class="form-group">
+                <!-- <span class="hint">Leave empty</span> -->
+                <input type="text" id="q" name="q" class="form-control intro" placeholder="Start searching">
+                <button type="submit" id="q-search"><span class="glyphicon glyphicon-search"></span></button>
+              </div>
               <br clear="all" />
 
-              <label><a href="#" target="_blank" title="Sign up for your own API key...">API Key</a>:<br />
-                <input type="text" name="api_key" value="DEMO_KEY" />
-              </label>
-              <br clear="all" />
-
-              <input type="submit" id="fbopen-widget-search" value="Search" />
             </form>
 
             <div id="fbopen-widget-results-demo" class="debug"><small>Your sample search results will display here.</small></div>
@@ -87,26 +78,48 @@
 <!-- END OF WIDGET SNIPPET -->
           </div>
 
-        </section>
 
-        <footer>
-          FBOpen Widget is brought to you by <a href="https://18f.gsa.gov">18F</a><br>
-        </footer>
+          <div id="sidebar" class="col-sm-4 col-md-4">
 
-        <script src="/fbopen-widget/javascripts/main.js" type="text/javascript"></script>
-        <script type="text/javascript">
-          var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-          document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-        </script>
-        <script type="text/javascript">
-          try {
-            var pageTracker = _gat._getTracker("UA-43089984-2");
-            pageTracker._trackPageview();
-            } catch(err) {}
-        </script>
+            <div class="container brand">
+              <a href="/" style="color: #333;"><h1>fbopen</h1></a>
+              <span>widget builder</span>
+            </div>
 
 
+          </div><!-- results column -->
+
+        </div><!-- row -->
+
+      </div><!-- outer-container -->
+
+      <div id="footer">
+        <div class="container">
+          <p class="landing-copy-small">
+            FBOpen and this sample application are joint projects of
+            <br />
+            <a href="https://18f.gsa.gov">18F</a>, the <a href="http://whitehouse.gov/innovationfellows">Presidential Innovation Fellows</a> and the <a href="http://www.gsa.gov/portal/content/105036">GSA Integrated Award Environment</a>.
+          </p>
+          <p>
+            <a id="github-link" href="https://github.com/18f/fbopen"></a>
+            <a id="twitter-link" href="https://twitter.com/fbopen"></a>
+            <a id="email-link" href="mailto:fbopen@gsa.gov"></a>
+          </p>
+        </div>
       </div>
+
+      <script src="/fbopen-widget/javascripts/main.js" type="text/javascript"></script>
+      <script type="text/javascript">
+        var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+      </script>
+      <script type="text/javascript">
+        try {
+          var pageTracker = _gat._getTracker("UA-43089984-2");
+          pageTracker._trackPageview();
+          } catch(err) {}
+      </script>
+
     </div>
   </body>
 </html>

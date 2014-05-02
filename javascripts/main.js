@@ -9,14 +9,14 @@ $(function() {
   	var $inputs = $form.find("input, select, button, textarea");
   	var $results = $('#fbopen-widget-results-demo');
     var $dataStore = $('#fbopen-widget-data');
-    var $widget = $('#widget')
-
+    var $widget = $('#widget');
+    var _q = $form.find('#q').val();
   	var serializedData = $form.serialize();
     // set values for widget snippet
     $dataStore.val(serializedData);
 
   	$inputs.prop("disabled", true);
-    $results.html('<h4>Loading...</h4>')
+    $results.html('<h4>Loading...</h4>');
     $widget.fadeIn();
 
     $('#fbopen-widget-output').find('script').each(function() {
@@ -42,7 +42,13 @@ $(function() {
   	request.done(function (response, textStatus, jqXHR){
       $results.html('<h2>FBOpen</h2>');
       var num = addCommas(response.numFound);
-      $results.append('<h3>'+num+' Opportunities Found</h3>')
+      var _title = "";
+      if (_q.length > 0) {
+        _title = "<h3>" + num + " opportunities found matching <i>" + _q + "<i></h3>";
+      } else {
+        _title = '<h3>' + num + ' opportunities found</h3>';
+      }
+      $results.append(_title);
       for (var i = 0; i < response.docs.length; i++) {
         var title = response.docs[i].title;
         var uri = response.docs[i].listing_url;
@@ -56,7 +62,7 @@ $(function() {
           html += '<p>'+description+'</p>';
           html += '</div>';
 
-        $results.append(html)
+        $results.append(html);
       }
     });
 

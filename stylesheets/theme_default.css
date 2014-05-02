@@ -4,6 +4,87 @@
   max-height: 400px;
   overflow-y: scroll;
 }
-/*#fbopen-widget-placeholder { display: block; }*/
 
 #fbopen-widget-results small { color: #c1c1c1; }
+
+#fbopen-widget-results-demo {
+  border: 1px solid #EA461F;
+  border-radius: 20px;
+  padding: 10px 20px;
+  max-height: 400px;
+  overflow-y: scroll;
+}
+#widget-textarea {
+  width: 100%;
+  height: 300px;
+  margin: 0 0 1.0em 0;
+}
+
+#fbopen-widget label {
+	display: inline;
+}
+
+#fbopen-widget input[type=text] {
+  width: 100%;
+  margin-bottom: 1.0em;
+}
+
+
+#widget { margin: 1.0em;}
+#fbopen-widget-results small { color: #c1c1c1; }
+
+header { position: relative;}
+.version { color: #c1c1c1; font-size: 0.8em; right: 0; top: 10px; position: absolute; }
+.debug small {
+  font-style: italic;
+  font-size: 0.8em;
+  color: #c1c1c1;
+}
+.fbopen-widget-wrapper,
+#widget { display: none; }
+.fbopen-demo .fbopen-widget-wrapper { display: none; }
+
+#intro {
+  display: block !important;
+}
+
+#fbopen-widget {
+	max-width: 500px;
+	margin: 0 auto;
+	color: #999999;
+	font-family: 'Enriqueta';
+	font-size: 18px;
+	line-height: 24px;
+}
+#fbopen-widget #widget-textarea {
+	color: #999999;
+}
+#fbopen-widget-demo {
+	max-width: 300px;
+	margin: 0 auto;
+}
+
+#fbopen-widget input.intro {
+	font-family: 'Roboto';
+	font-size: 20px;
+	color: #666666;
+	font-weight: 100;
+	padding: 10px 30px 10px 15px;
+	height: 45px;
+	margin: 0;
+	width: 100%;
+	background: #FFFFFF;
+	border-radius: 0;
+	border-style: Solid;
+	border-color: #E6E6E6;
+	border-width: 1px;
+}
+
+#fbopen-widget .form-group .hint,
+#fbopen-widget label {
+	font-family: 'Enriqueta';
+	font-size: 16px;
+	line-height: 24px;
+	color: #EA461F;
+	margin: 0.2em 0 0.3em 0;
+}
